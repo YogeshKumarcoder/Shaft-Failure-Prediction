@@ -1,0 +1,16 @@
+{
+  "threshold": 1.1,
+  "seed": 42,
+  "n_samples": 50000,
+  "n_target_clip": [
+    0.2,
+    5.0
+  ],
+  "features": [
+    "d",
+    "M",
+    "T",
+    "Syt"
+  ],
+  "target": "n_MDET"
+}
