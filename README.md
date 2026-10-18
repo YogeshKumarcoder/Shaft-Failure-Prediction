@@ -26,17 +26,20 @@ Test R^2 on a random 80/20 split:
 | Linear regression | d, M, T, Syt | 0.19 |
 | Linear regression | sigma, tau, Syt | 0.61 |
 | Random forest (100 trees) | d, M, T, Syt | 0.96 |
-![feature_importance.png](plots/file.png)
+
 
 Linear regression on raw inputs cannot represent the cubic dependence on `d`. Giving it `sigma` and `tau` helps, and the random forest learns the non-linearity from the raw inputs.
+
+![Feature importance](plots/feature_importance.png)
 
 ## Fail / safe decision
 
 The regression output is turned into a decision with `predicted n_MDET < t`. Missing a failing shaft is worse than a false alarm, so `t` is set above 1.
-![actual_vs_predicted.png](plots/file.png)
+
+![Actual vs predicted](plots/actual_vs_predicted.png)
 
 The threshold was chosen on out-of-fold predictions from the training split only (5-fold, about 40,000 predictions), and the test split was evaluated once.
-![threshold_curve.png](plots/file.png)
+
 
 Out-of-fold results:
 
@@ -47,6 +50,8 @@ Out-of-fold results:
 | **1.10** | **0.20%** | **18.08%** |
 | 1.12 | 0.11% | 21.49% |
 | 1.15 | 0.03% | 26.65% |
+
+![Threshold curve](plots/threshold_curve.png)
 
 Test set (10,000 rows):
 
